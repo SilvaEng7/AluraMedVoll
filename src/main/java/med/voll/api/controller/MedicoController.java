@@ -14,6 +14,8 @@ import med.voll.api.interfaces.MedicoRepository;
 
 @RestController
 @RequestMapping("/medicos")
+
+
 public class MedicoController {
 
      @Autowired
