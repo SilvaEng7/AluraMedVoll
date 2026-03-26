@@ -1,5 +1,6 @@
 package med.voll.api.dto;
 
+<<<<<<< HEAD
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -24,5 +25,14 @@ public record DadosCadastroPacientesDTO(
     @NotNull
     @Valid
     DadosCadastroEnderecoDTO endereco	
+=======
+public record DadosCadastroPacientesDTO(
+
+String nome,
+String email,
+String telefone,
+String cpf,
+DadosCadastroEnderecoDTO endereco	
+>>>>>>> feature/listar-medico
 
 ){}
