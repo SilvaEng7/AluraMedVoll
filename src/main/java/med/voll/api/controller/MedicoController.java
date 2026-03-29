@@ -3,6 +3,7 @@ package med.voll.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,7 +34,7 @@ public class MedicoController {
     @GetMapping
     public Page<DadosListagemMedicoDTO> listar(
         @org.springframework.data.web.PageableDefault(size = 10, sort = "nome") Pageable pageable) {
-        return repository.findAll(pageable).map(DadosListagemMedicoDTO::new);
+        return repository.findAllByAtivoTrue(pageable).map(DadosListagemMedicoDTO::new);
     }
 
     @PutMapping
@@ -41,5 +42,12 @@ public class MedicoController {
     public void atualizar(@RequestBody @Valid DadosAtualizarMedicoDTO dados){
         var medico = repository.getReferenceById(dados.id());
         medico.atualizar(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @org.springframework.transaction.annotation.Transactional
+    public void excluir(@org.springframework.web.bind.annotation.PathVariable Long id){
+        var medico = repository.getReferenceById(id);
+        medico.desativar();
     }
 }
