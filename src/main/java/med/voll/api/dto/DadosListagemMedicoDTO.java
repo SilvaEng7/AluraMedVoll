@@ -10,6 +10,7 @@ import med.voll.api.enums.Especialidade;
 
 
 public record DadosListagemMedicoDTO(
+    Long id,
     String nome, 
     String crm, 
     Especialidade especialidade,
@@ -17,10 +18,12 @@ public record DadosListagemMedicoDTO(
 ) {
     public DadosListagemMedicoDTO(Medico medico) {
         this(
-            medico.getNome(),
-            medico.getCrm(),
-            medico.getEspecialidade(),
+            medico.getId(), 
+            medico.getNome(), 
+            medico.getCrm(), 
+            medico.getEspecialidade(), 
             medico.getEmail()
         );
+
     }
 }
