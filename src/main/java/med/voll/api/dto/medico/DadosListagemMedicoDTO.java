@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package med.voll.api.dto;
+package med.voll.api.dto.medico;
 
 import med.voll.api.entities.Medico;
 import med.voll.api.enums.Especialidade;

@@ -11,8 +11,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import med.voll.api.dto.DadosAtualizarPacienteDTO;
-import med.voll.api.dto.DadosCadastroPacientesDTO;
+import med.voll.api.dto.paciente.DadosAtualizarPacienteDTO;
+import med.voll.api.dto.paciente.DadosCadastroPacientesDTO;
 
 
 @Table(name = "pacientes")

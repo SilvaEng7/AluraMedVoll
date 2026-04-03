@@ -12,8 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.dto.DadosAtualizarMedicoDTO;
-import med.voll.api.dto.DadosCadastroMedicoDTO;
+import med.voll.api.dto.medico.DadosAtualizarMedicoDTO;
+import med.voll.api.dto.medico.DadosCadastroMedicoDTO;
 import med.voll.api.enums.Especialidade;
 
 @Table(name = "medicos")
