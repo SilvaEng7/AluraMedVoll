@@ -33,6 +33,8 @@ public class Paciente {
     private String telefone;
     private String cpf;
 
+    private Boolean ativo;
+
     @Embedded
     private Endereco endereco;
 
@@ -42,6 +44,7 @@ public class Paciente {
         this.telefone = dados.telefone();
         this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
+        this.ativo = true;
     }
 
     public void atualizar(DadosAtualizarPacienteDTO dados) {
@@ -54,6 +57,10 @@ public class Paciente {
         if(dados.endereco() != null){
             this.endereco.atualizar(dados.endereco());
         }
+    }
+
+    public void desativar(){
+        this.ativo = false;
     }
 
 }
