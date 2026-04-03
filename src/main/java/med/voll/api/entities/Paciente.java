@@ -2,8 +2,6 @@ package med.voll.api.entities;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,45 +10,44 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.dto.DadosAtualizarMedicoDTO;
-import med.voll.api.dto.DadosCadastroMedicoDTO;
-import med.voll.api.enums.Especialidade;
+import lombok.Setter;
+import med.voll.api.dto.DadosAtualizarPacienteDTO;
+import med.voll.api.dto.DadosCadastroPacientesDTO;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
-@Getter 
-@NoArgsConstructor
+
+@Table(name = "pacientes")
+@Entity(name = "Paciente")
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(of = "id")
-public class Medico{
+
+public class Paciente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String nome;
     private String email;
-    private String crm;
     private String telefone;
-
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
-    
-    @Embedded
-    private Endereco endereco;
+    private String cpf;
 
     private Boolean ativo;
 
-    public Medico(DadosCadastroMedicoDTO dados) {
+    @Embedded
+    private Endereco endereco;
+
+    public Paciente(DadosCadastroPacientesDTO dados){
         this.nome = dados.nome();
         this.email = dados.email();
-        this.crm = dados.crm();
         this.telefone = dados.telefone();
-        this.especialidade = dados.especialidade();
+        this.cpf = dados.cpf();
         this.endereco = new Endereco(dados.endereco());
         this.ativo = true;
     }
-    
-    public void atualizar(DadosAtualizarMedicoDTO dados) {
+
+    public void atualizar(DadosAtualizarPacienteDTO dados) {
         if(dados.nome() != null){
             this.nome = dados.nome();
         }
@@ -62,8 +59,8 @@ public class Medico{
         }
     }
 
-    public void desativar() {
+    public void desativar(){
         this.ativo = false;
-        
     }
+
 }

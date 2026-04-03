@@ -5,12 +5,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import med.voll.api.entities.Medico;
+import med.voll.api.entities.Paciente;
 
 @Repository
-public interface MedicoRepository extends JpaRepository<Medico, Long> {
+public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
-    Page<Medico> findAllByAtivoTrue(Pageable pageable);
+    Page <Paciente> findAllByAtivoTrue(Pageable page);
     
 }
-
