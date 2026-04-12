@@ -17,12 +17,8 @@ public class SecurityConfigs {
 
     @Bean  
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        
-        return http
-            .csrf(csrf -> csrf.disable())
-            .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            )
+        return http.csrf(csrf -> csrf.disable())
+            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .build();
     }
 
@@ -31,13 +27,11 @@ public class SecurityConfigs {
         return configuration.getAuthenticationManager();
 
     }
-
+   
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-
-    
 
 }
 
