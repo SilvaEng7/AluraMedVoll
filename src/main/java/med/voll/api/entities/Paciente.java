@@ -11,8 +11,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+<<<<<<< HEAD
 import med.voll.api.dto.DadosAtualizarPacienteDTO;
 import med.voll.api.dto.DadosCadastroPacientesDTO;
+=======
+import med.voll.api.dto.paciente.DadosAtualizarPacienteDTO;
+import med.voll.api.dto.paciente.DadosCadastroPacientesDTO;
+>>>>>>> developer
 
 
 @Table(name = "pacientes")
